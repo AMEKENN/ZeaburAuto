@@ -3,15 +3,13 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-chrome_options = options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--disable-dev-shm-usage')
+options = options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-gpu')
+options.add_argument('--disable-dev-shm-usage')
 
-chromedriver = "/usr/bin/chromedriver"
-os.environ["webdriver.chrome.driver"] = chromedriver
-driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
+driver = webdriver.Chrome(options=options)
 driver.get("https://dash.zeabur.com/login")
 
 driver.find_element(By.LINK_TEXT, "Sign in with Github").click()
